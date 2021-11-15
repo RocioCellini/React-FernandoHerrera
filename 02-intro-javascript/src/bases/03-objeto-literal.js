@@ -1,3 +1,4 @@
+//Objeto literal
 
 const persona = {
    nombre : 'Rocío',
