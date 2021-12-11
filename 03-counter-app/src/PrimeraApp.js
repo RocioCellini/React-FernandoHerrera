@@ -1,9 +1,18 @@
 import React, { Fragment } from "react";
 
 const PrimeraApp = () => {
+
+    const saludo = "Hola gran mundo";
+
+    const objeto = {
+        nombre: 'Rocío',
+        edad: 34
+    }
+
     return ( 
         <Fragment>
-            <h1>Hola Mundo</h1>
+            <h1>{saludo}</h1>
+            <pre>{JSON.stringify(objeto, null,3)}</pre>
             <p>Mi primera aplicación</p>
         </Fragment>
             );
@@ -15,7 +24,8 @@ const PrimeraApp = () => {
     En cambio si uso paréntesis le estoy diciendo que todo es parte de un mismo objeto
     y para ello debe ser todo un elemento, como ser un div.
     Si hay varios elementos podemos usar un Fragment
-    Fragment tamb se puede escribir abreviado <></>
+    Fragment tamb se puede escribir abreviado <></> y de esta forma no hace falta importarlo, la
+    primer linea quedaría... import React from "react"
     */
 }
 
