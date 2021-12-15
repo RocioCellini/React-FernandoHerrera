@@ -1,20 +1,23 @@
-import React, { Fragment } from "react";
+import React from "react";
+//import React, { Fragment } from "react";
 
-const PrimeraApp = () => {
+const PrimeraApp = (props) => {
 
-    const saludo = "Hola gran mundo";
+    /*const saludo = "Hola gran mundo";
 
     const objeto = {
         nombre: 'Rocío',
         edad: 34
     }
 
+    console.log(props);*/
+
     return ( 
-        <Fragment>
-            <h1>{saludo}</h1>
-            <pre>{JSON.stringify(objeto, null,3)}</pre>
+        <>
+            <h1>{props.saludo}</h1>
+           { /*<pre>{JSON.stringify(objeto, null,3)}</pre>*/}
             <p>Mi primera aplicación</p>
-        </Fragment>
+        </>
             );
     /* JS puede retornar un sólo objeto a la vez
     por eso es que no se puede poner 
