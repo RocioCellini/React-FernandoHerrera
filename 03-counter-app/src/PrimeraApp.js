@@ -26,7 +26,7 @@ const PrimeraApp = (props) => {
         <p>Mi primera aplicación</p>
     En cambio si uso paréntesis le estoy diciendo que todo es parte de un mismo objeto
     y para ello debe ser todo un elemento, como ser un div.
-    Si hay varios elementos podemos usar un Fragment
+    Si hay varios elementos podemos usar un tag Fragment
     Fragment tamb se puede escribir abreviado <></> y de esta forma no hace falta importarlo, la
     primer linea quedaría... import React from "react"
     */
