@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from 'prop-types';
 //import React, { Fragment } from "react";
 
-const PrimeraApp = (props) => {
+const PrimeraApp = ({saludo="Hola, soy Rocío"}) => {
+
+   /* if (!saludo){
+        throw new Error('El saludo es necesario');
+    }*/
 
     /*const saludo = "Hola gran mundo";
 
@@ -14,7 +19,7 @@ const PrimeraApp = (props) => {
 
     return ( 
         <>
-            <h1>{props.saludo}</h1>
+            <h1>{saludo}</h1>
            { /*<pre>{JSON.stringify(objeto, null,3)}</pre>*/}
             <p>Mi primera aplicación</p>
         </>
@@ -30,6 +35,9 @@ const PrimeraApp = (props) => {
     Fragment tamb se puede escribir abreviado <></> y de esta forma no hace falta importarlo, la
     primer linea quedaría... import React from "react"
     */
+   PrimeraApp.propTypes = {
+        saludo: PropTypes.string.isRequired
+   }
 }
 
 export default PrimeraApp;
