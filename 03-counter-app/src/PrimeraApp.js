@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 //import React, { Fragment } from "react";
 
-const PrimeraApp = ({saludo="Hola, soy Rocío"}) => {
+const PrimeraApp = ({saludo, subtitulo}) => {
 
    /* if (!saludo){
         throw new Error('El saludo es necesario');
@@ -37,6 +37,9 @@ const PrimeraApp = ({saludo="Hola, soy Rocío"}) => {
     */
    PrimeraApp.propTypes = {
         saludo: PropTypes.string.isRequired
+   }
+   PrimeraApp.defaultProps = {
+       subtitulo: 'Soy un subtítulo'
    }
 }
 
