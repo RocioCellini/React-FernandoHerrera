@@ -1,0 +1,1 @@
+rafcp es un snipped que y te crea el componente con proptypes, me falta agregarlo a mi VSC.
