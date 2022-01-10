@@ -1,1 +1,3 @@
 rafcp es un snipped que y te crea el componente con proptypes, me falta agregarlo a mi VSC.
+También falta agregar a VSC q auto complete al importar proptypes. La linea del import.
+

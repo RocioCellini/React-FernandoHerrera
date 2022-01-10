@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
+import {AddCategory} from "./components/AddCategory";
 
 const GifExpertApp = () => {
 
@@ -8,12 +8,12 @@ const GifExpertApp = () => {
    /*  const handleAdd = () => {
          setCategories([...categories, 'HunterXHunter']);
     } */
-    
+
     return(
         <>
             <h2>GifExpertApp</h2>
             <hr></hr>
-            <AddCategory />
+            <AddCategory setCategories={setCategories}/>
             <ol>
                 { 
                     categories.map( category => {

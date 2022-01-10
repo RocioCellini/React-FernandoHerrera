@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export const AddCategory = () =>{
+export const AddCategory = ({setCategories}) =>{
     
-    const [inputValue, setInputValue] = useState('Hola Mundo');
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -10,7 +11,17 @@ export const AddCategory = () =>{
 
     const handleSubmit = (e) => {
         e.preventDefault(); //hace que se quede en la misma página sin hacer un refresh q camie la url
-        console.log('Submit hecho')
+    
+        if(inputValue.trim().length > 2){
+            setCategories( cats => [ ...cats, inputValue] );  
+            setInputValue(''); 
+        }else{
+            alert('Ingresar al menos dos caracteres');
+        }
+        
+    }
+    AddCategory.propTypes = {
+        setCategories: PropTypes.func.isRequired
     }
 
     return(
@@ -21,5 +32,7 @@ export const AddCategory = () =>{
                 onChange={handleInputChange}
             />
         </form> 
-        );
+    );
+
 }
+
