@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { GifGridItem } from "./GifGridItem";
 
 export const GifGrid = ({category}) => {
 
-    const [count, setCount] = useState(0);
-
+    const [images, setImages] = useState([]);
     /*useEffect evitará que se entre en un bucle infinito cada vez q se renderice el componente. 
     Hace que solo se llame a getGifs la primera vez q se carga el componente */
     
@@ -19,12 +19,13 @@ export const GifGrid = ({category}) => {
         const gifs = data.map(img => {
             return{
                 id: img.id,
-                tittle: img.tittle,
+                title: img.title,
                 url: img.images?.downsized_medium.url // el signo interrogatorio sirve para corroborar que realmente traiga imagenes
             }
         })
 
         console.log(gifs);
+        setImages(gifs);
     }
 
    // getGifs();
@@ -32,8 +33,38 @@ export const GifGrid = ({category}) => {
     return(
         <div>
         <h3> {category} </h3>
-        <h3> {count} </h3>
-        <button onClick={()=>setCount(count +1)}>Sumar</button>
+        
+        {
+            images.map(img => (
+                <GifGridItem 
+                    key={img.id}
+                    { ...img }
+                />
+            ))
+        
+        
+        
+     
+                
+            }
+                    
+       
+        
         </div>
     )
 }
+
+   
+        /* <ol>    { 
+                images.map( img =>  ( 
+                    <li key={img.id}> {img.title} </li>
+                    ),
+                )
+            }   </ol> */
+            
+            // Esto es lo mismo que si desestructuro img
+            
+            /*     images.map( ({id, title}) =>  ( 
+                    <li key={id}> {title} </li>
+                    ),
+                ) */
