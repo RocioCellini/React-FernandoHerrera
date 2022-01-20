@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getGifs } from "../helpers/getGifs";
 import { GifGridItem } from "./GifGridItem";
 
 export const GifGrid = ({category}) => {
@@ -8,11 +9,12 @@ export const GifGrid = ({category}) => {
     Hace que solo se llame a getGifs la primera vez q se carga el componente */
     
     useEffect(()=>{
-        getGifs();
-    },[])
+        getGifs(category) //como getGifs es una promesa puedo usar then
+        .then( setImages ); // setImages da el mismo resultado que poner imgs => setImages(imgs)
+    },[category])
 
-    const getGifs = async() => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=harry+potter&limit=10&api_key=3dT4JSMP4Lp9oORwbHgEAzO3Jp3MrR18';
+    /* const getGifs = async() => {
+        const url =  `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=10&api_key=3dT4JSMP4Lp9oORwbHgEAzO3Jp3MrR18`;
         const resp = await fetch(url);
         const {data} = await resp.json();
 
@@ -26,9 +28,9 @@ export const GifGrid = ({category}) => {
 
         console.log(gifs);
         setImages(gifs);
-    }
+    } */
 
-   // getGifs();
+   // getGifs(); 
 
     return(
         <>

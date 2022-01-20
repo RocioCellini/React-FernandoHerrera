@@ -13,7 +13,7 @@ export const AddCategory = ({setCategories}) =>{
         e.preventDefault(); //hace que se quede en la misma página sin hacer un refresh q camie la url
     
         if(inputValue.trim().length > 2){
-            setCategories( cats => [ ...cats, inputValue] );  
+            setCategories( cats => [ inputValue, ...cats] );  
             setInputValue(''); 
         }else{
             alert('Ingresar al menos dos caracteres');
