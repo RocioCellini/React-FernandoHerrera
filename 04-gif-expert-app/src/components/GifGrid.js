@@ -1,20 +1,39 @@
 import React from "react";
 import { useFetchGifs } from "../hooks/useFetchGifs";
-//import { getGifs } from "../helpers/getGifs";
-//import { GifGridItem } from "./GifGridItem";
+import { GifGridItem } from "./GifGridItem";
 
 export const GifGrid = ({category}) => {
 
-    const {loading}= useFetchGifs();
+    const {data: images, loading}= useFetchGifs(category);
 
-   // const [images, setImages] = useState([]);
+    return(
+        <>
+
+        <h3> {category} </h3>
+        {loading && <p>Loading</p>}
+        <div className="card-grid">
+            {
+                images.map(img => (
+                    <GifGridItem 
+                        key={img.id}
+                        { ...img }
+                    />
+                ))  
+            }
+        </div> 
+
+       </>
+    )
+}
+
+    /* 
+    {loading ? <p>Loading</p> : null} esto se puede escribir con la forma corta:
+    {loading && <p>Loading</p>}
+    */
+    /* data: images es una manera de renombrar data por images, sino hay q usar data solo */
+
     /*useEffect evitará que se entre en un bucle infinito cada vez q se renderice el componente. 
     Hace que solo se llame a getGifs la primera vez q se carga el componente */
-    
-    /* useEffect(()=>{
-        getGifs(category) //como getGifs es una promesa puedo usar then
-        .then( setImages ); // setImages da el mismo resultado que poner imgs => setImages(imgs)
-    },[category]) */
 
     /* const getGifs = async() => {
         const url =  `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=10&api_key=3dT4JSMP4Lp9oORwbHgEAzO3Jp3MrR18`;
@@ -34,25 +53,6 @@ export const GifGrid = ({category}) => {
     } */
 
    // getGifs(); 
-
-    return(
-        <>
-        <h3> {category} </h3>
-
-        { loading ? 'Cargando...' : 'Data cargada' }
-        {/* <div className="card-grid">
-        {
-            images.map(img => (
-                <GifGridItem 
-                    key={img.id}
-                    { ...img }
-                />
-            ))  
-        }
-       </div> */}
-       </>
-    )
-}
 
    
         /* <ol>    { 
