@@ -2,3 +2,5 @@ rafcp es un snipped que y te crea el componente con proptypes, me falta agregarl
 También falta agregar a VSC q auto complete al importar proptypes. La linea del import.
 
 la carpeta helpers contiene funciones que realizan una tarea, pueden recibir argumentos y devuelven algo.
+
+en la carpeta hooks, los archivos que hay corresponden a custom hooks
